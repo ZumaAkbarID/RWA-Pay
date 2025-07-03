@@ -39,7 +39,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /root/apps/Aksesin
+            cd /root/apps/RWA-Pay
             git pull origin main
             composer install --no-dev --optimize-autoloader
             php artisan config:cache
@@ -48,5 +48,5 @@ jobs:
             php artisan icon:cache
             php artisan octane:reload
             php artisan queue:restart
-            sudo supervisorctl restart aksesin-octane
-            sudo supervisorctl restart aksesin-queue:*
+            sudo supervisorctl restart pay-octane
+            sudo supervisorctl restart pay-queue:*
