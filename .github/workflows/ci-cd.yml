@@ -40,6 +40,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd /root/apps/RWA-Pay
+            git config --global --add safe.directory "$PWD"
             git pull origin main
             composer install --no-dev --optimize-autoloader
             php artisan config:cache
