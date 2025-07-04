@@ -30,6 +30,7 @@ return new class extends Migration
             $table->text('response_body')->nullable();
             $table->integer('retries')->default(0);
             $table->timestamp('last_attempt_at')->nullable();
+            $table->timestamp('expired_at')->nullable();
             $table->timestamps();
 
             $table->foreign('merchant_id')->references('id')->on('merchants')->onDelete('cascade');
