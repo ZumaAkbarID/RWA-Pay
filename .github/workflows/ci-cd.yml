@@ -49,5 +49,6 @@ jobs:
             php artisan icon:cache
             php artisan octane:reload
             php artisan queue:restart
+            sleep 5
             sudo supervisorctl restart pay-octane
             sudo supervisorctl restart pay-queue:*
